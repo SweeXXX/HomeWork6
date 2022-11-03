@@ -15,13 +15,13 @@ namespace Home
             int milliseconds = 5000;
 
 
-            string path = @"C:\Users\Никита\Desktop\ДЗ.txt";
+            string path = @"C:\Users\Никита\Desktop\fakk\HomeWork\Home`\ДЗ.txt";
             string[] s = File.ReadLines(path).Select(x => x.ToString()).ToArray(); // все строки
             
             string[] s1 = s[0].Split(";").ToArray(); // магазин сладостей из файла
 
             CandyStore candyStore = new CandyStore(s1[0], s1[1], (Price)int.Parse(s1[2])); // создал Магазин сладостей
-            candyStore.BuyCandyes(45.5); //машазин купил конфет
+            candyStore.BuyCandyes(45.5); //магазин купил конфет
             Console.WriteLine($"count of kilograms of candyes: {candyStore.GetCountOfCandyes}"); // запрашиваю кол-во конфет
             candyStore.ThrowOutCandyes(24.5); // выбрасываю конфеты
             Console.WriteLine($"name of store: {candyStore.GetName}"); // запрашиваю имя магазина сладостей (МС)
@@ -39,8 +39,12 @@ namespace Home
             Karch.SayHello();
             Console.WriteLine($"Name:{Karch.GetFullName}");
             Console.WriteLine($"адресс работы: {Karch.GetAdressOfWork}");
+            string na = Karch.GetAll;
+            Karch.GetAll = " 314145";
             //Karch.GoCrazy(); // чел сошел с ума... или же приисполнился??
             //
+            Console.WriteLine($"{na} 1234567890");
+            Console.WriteLine($"{Karch.GetAll} 123456790-");
             Thread.Sleep(milliseconds);
             Console.WriteLine();
             string[] s3 = s[2].Split(";").ToArray(); // Данисимус
@@ -117,6 +121,8 @@ namespace Home
         {
             get { return $"{surname} {name}"; }
         }
+        public string GetAll { get; set; }
+        
         public string GetName
         {
             get { return name; }
